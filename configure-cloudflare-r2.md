@@ -1,15 +1,3 @@
----
-title: Configuring CloudFlare R2 in FluentCommunity Plugin
-slug: configure-cloudflare-r2
-tagline: CloudFlare R2 Integration with FluentCommunity Plugin
-sidebar: true
-prev: true
-next: true
-editLink: true
-pageClass: docs-home
-menu_order: 1
----
-
 # Configuring CloudFlare R2 in FluentCommunity Plugin
 
 This guide will walk you through the process of configuring CloudFlare R2 for use with the FluentCommunity Plugin. You'll learn how to obtain the necessary credentials and input them into the plugin's settings.
