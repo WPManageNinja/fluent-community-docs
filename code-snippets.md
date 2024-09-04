@@ -9,7 +9,7 @@ By default the portal URL is `/portal`. You can change it to something else like
 ```php
 define('FLUENT_COMMUNITY_PORTAL_SLUG', 'community');
 ```
-This code need to be placed in your wp-config.php file.
+This code need to be placed in your wp-config.php file. After add this, make sure you resave the permalink settings to flush the rewrite rules.
 
 ### Add Custom CSS to Portal<a name="custom_css"></a>
 You can add custom CSS to the portal by using the following code 
