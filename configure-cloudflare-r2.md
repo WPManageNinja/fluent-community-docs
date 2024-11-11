@@ -14,25 +14,29 @@ This guide will walk you through the process of configuring CloudFlare R2 for us
 1. Log in to your CloudFlare account.
 2. Navigate to "R2" under the "Storage" section.
 3. Click "Create bucket" and choose a unique name for your bucket
-    - Location: Choose the region closest to your target audience or use Automatic
-    - Default Storage Class: Select Default
+   - Location: Choose the region closest to your target audience or use Automatic
+   - Default Storage Class: Select Default
 
-### 2. Generate API Tokens
+### 2. Generate API Tokens for R2
 
-1. In your CloudFlare dashboard, go to "My Profile" > "API Tokens".
-2. Click "Create Token".
-3. Select "Create Custom Token".
-4. Set the following permissions:
-    - Account > R2 > Edit
-    - Account > R2 Storage > Edit
-5. Set the "Account Resources" to include your specific account.
-6. Create the token and save the displayed credentials securely.
+1. In your CloudFlare R2 dashboard, go to "Manage R2 API Tokens"
+2. Click "Create API Token".
+3. Give a name & From permissions, Select Object Read & Write.
+4. From Specify bucket(s):
+   - Select your newly created Bucket
+5. TTL should be forever.
+6. Click "Create API Token"
+7. Now, Save the following Credential:
+   1. Access Key ID
+   3. Secret Access Key
 
 ### 3. Obtain R2 Endpoint
 
 1. In the CloudFlare dashboard, go to "R2" > "Overview".
-2. Look for the "R2 API" section.
-3. Copy the endpoint URL (e.g., `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`).
+2. Select your bucket from the list of buckets.
+3. Click on the "Settings" tab.
+4. Scroll down to the "R2.dev subdomain" section and then click "allow access"
+5. Copy the Public R2.dev Bucket URL
 
 ### 4. Configure FluentCommunity Plugin
 
@@ -40,12 +44,12 @@ This guide will walk you through the process of configuring CloudFlare R2 for us
 2. Find the CloudStorage Configaration Form.
 3. Fill in the following fields:
 
-    - **Access Key**: Paste the access key from your CloudFlare API token.
-    - **Secret Key**: Paste the secret key from your CloudFlare API token.
-    - **Account ID**: Paste the CloudFlare Account ID.
-    - **Bucket**: Enter the name of the R2 bucket you created.
-    - **Sub Folder** (Optional): If you want to store files in a specific subfolder within the bucket, enter the name here.
-    - **Public URL** Add the public URL for your R2 bucket (e.g., `https://pub-<ACCOUNT_ID>.r2.dev`).
+   - **Access Key**: Paste the access key from your CloudFlare API token. (From step 2)
+   - **Secret Key**: Paste the secret key from your CloudFlare API token. (From step 2)
+   - **Account ID**: Paste the CloudFlare Account ID. (You will find it on R2 Overview page)
+   - **Bucket**: Enter the name of the R2 bucket you created.
+   - **Sub Folder** (Optional): If you want to store files in a specific subfolder within the bucket, enter the name here.
+   - **Public URL** Add the public URL for your R2 bucket (From step 3)
 
 4. Save your settings.
 
@@ -56,12 +60,12 @@ For added security or to manage multiple environments, you can define these valu
 ```php
 // CloudFlare R2 Configuration
 define('FLUENT_COMMUNITY_CLOUD_STORAGE', 'cloudflare_r2');
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_ACCOUNT_ID', 'ACCOUNT_ID'); // like: 1718cb5a51e65c8f19e8sahdakh763
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_ACCESS_KEY', 'ACCESS_KEY_HERE');
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_SECRET_KEY', 'SECRET_KEY_HERE');
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_BUCKET', 'BUCKET_NAME');
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_PUBLIC_URL', 'https://pub-SOME_RANDOM_STRINGS.r2.dev'); // You can use the r2 custom domain too
-define('FLUENT_COMMUNITY_CLOUD_STORAGE_SUB_FOLDER', 'my-site-name'); // optional
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_ACCOUNT_ID', 'CLOUDFLARE_ACCOUNT_ID'); // like: 1718cb5a51e65c8f19e8sahdakh763
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_ACCESS_KEY', ''); // from step 2
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_SECRET_KEY', ''); // from step 2
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_BUCKET', 'YOUR_BUCKET_NAME'); // replace with your bucket name
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_PUBLIC_URL', 'https://pub-<YOUR_ACCOUNT_ID>.r2.dev'); // You can use the r2 custom domain too
+define('FLUENT_COMMUNITY_CLOUD_STORAGE_SUB_FOLDER', 'fluent-community'); // optional or use your own folder name or keep it empty
 ```
 
 If defined in `wp-config.php`, these values will override any settings in the plugin's configuration form.
