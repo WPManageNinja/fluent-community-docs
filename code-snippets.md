@@ -183,13 +183,21 @@ $feedData = [
     'user_id' => 1, // 1 is the user id
 ];
 
-try {
-    $feed = \FluentCommunity\App\Services\FeedsHelper::createFeed($feedData); // this will return $feed Model object
-} catch (\Exception $e) {
-    // handle the exception
+// Additional Optional Data attribues
+// for youtube or any other embeded video
+$feedData['media']['url] = 'https://www.youtube.com/watch?v=video_id'; // youtube video url
+$feedData['media']['type'] = 'oembed';
+
+$feed = \FluentCommunity\App\Services\FeedsHelper::createFeed($feedData); // this will return $feed Model or \WP_Error
+
+if(is_wp_error($feed)) {
+    // it's an error
+} else {
+    // it's a success
+    $createdFeedId = $feed->id;
+    $permalink = $feed->getPermalink(); // full url of the feed
 }
 ```
-
 
 ### Community Profile Related Snippets
 
