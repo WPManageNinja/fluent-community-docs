@@ -12,6 +12,7 @@ We built FluentCommunity with performance in mind. Every feature we developed is
 - **Object Caching:** We use object caching for most frequently used data like different settings. This helps us reduce the number of database queries and improve performance.
 - **Lazy Loading:** We use lazy loading for images and other assets. This helps us reduce the initial load time of the site.
 - **Background Job Processing:** We smartly handle long jobs like send email notifications when a user post a new content or leave a comment. We use background job processing so the user don't have to wait for the job to complete.
+- **Super Optimzed Media Handling:** We resize & convert all the uploaded images to WebP format. This helps us reduce the image size and improve performance.
 
 However, there are some server configurations that can help you get the most out of your site. The next sections will guide you through the recommended server configuration and settings for FluentCommunity.
 
