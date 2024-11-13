@@ -10,7 +10,7 @@ Your community can get a lot of media files uploaded by users. It is a good idea
 - [Filter Hooks](filter-hooks.md)
 
 ### Useful CodeSnippets
-
+- [Important Code Snippets](code-snippets.md)
 - [Modify Portal URL Slug](code-snippets.md#portal_slug)
 - [Add Custom CSS to Portal](code-snippets.md#custom_css)
 - [Add a user to a space](code-snippets.md#add_user_to_space)
