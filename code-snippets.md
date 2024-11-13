@@ -169,7 +169,7 @@ You can get the list of courses in the site using the following code. Please mak
 $spaces = \FluentCommunity\App\Functions\Utility::getCourses($byGroup); // this will return Collection of Space objects
 ```
 
-### Feed Related Snippets
+### Feed-Related Snippets
 
 #### Create a new post programatically<a name="create_new_feed"></a>
 
@@ -184,7 +184,7 @@ $feedData = [
 ];
 
 try {
-    $feed = \FluentCommunity\Modules\Feed\Services\FeedHelper::createFeed($feedData); // this will return $feed Model object
+    $feed = \FluentCommunity\App\Services\FeedsHelper::createFeed($feedData); // this will return $feed Model object
 } catch (\Exception $e) {
     // handle the exception
 }
