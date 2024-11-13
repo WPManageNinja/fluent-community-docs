@@ -67,7 +67,7 @@ $spaceId = 1; // 1 is the space id
 $userId = 1; // 1 is the user id
 $role = 'member'; // member, moderator, admin
 $by = 'by_admin'; // 'by_admin' or 'self';
-\FluentCommunity\App\Services\Helper::addUserToSpace($spaceId, $userId, $role, $by);
+\FluentCommunity\App\Services\Helper::addToSpace($spaceId, $userId, $role, $by);
 ```
 
 #### Remove a user from a space<a name="remove_user_from_space"></a>
