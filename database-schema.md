@@ -1,43 +1,10 @@
 In the databases/Migrators directory, you can find the schema for the database.
 
-`status: no-completed`
+`status: not-completed`
 
 # Database Schema Documentation
 
 This document outlines the database schema for the FluentCommunity plugin. The schema is defined in the `databases/Migrators` directory.
-
-## Table: wp_fcom_post_comments
-
-This table stores comments and reactions for posts in the community.
-
-| Column Name       | Data Type         | Constraints           | Description                                    |
-|-------------------|--------------------|-----------------------|------------------------------------------------|
-| id                | BIGINT UNSIGNED    | PRIMARY KEY, AUTO_INCREMENT | Unique identifier for each comment       |
-| user_id           | BIGINT UNSIGNED    | NULL                  | ID of the user who made the comment           |
-| post_id           | BIGINT UNSIGNED    | NULL                  | ID of the post the comment belongs to         |
-| parent_id         | BIGINT UNSIGNED    | NULL                  | ID of the parent comment (for nested comments)|
-| reactions_count   | BIGINT UNSIGNED    | DEFAULT 0             | Number of reactions to this comment           |
-| message           | LONGTEXT           | NULL                  | The comment text                              |
-| message_rendered  | LONGTEXT           | NULL                  | Rendered version of the comment (e.g., HTML)  |
-| meta              | LONGTEXT           | NULL                  | Additional metadata for the comment           |
-| type              | VARCHAR(100)       | DEFAULT 'comment'     | Type of the entry (e.g., comment, reaction)   |
-| content_type      | VARCHAR(100)       | DEFAULT 'text'        | Type of content (e.g., text, image)           |
-| status            | VARCHAR(100)       | DEFAULT 'published'   | Status of the comment (e.g., published, draft)|
-| is_sticky         | TINYINT(1)         | DEFAULT 0             | Whether the comment is sticky or not          |
-| created_at        | TIMESTAMP          | NULL                  | Timestamp when the comment was created        |
-| updated_at        | TIMESTAMP          | NULL                  | Timestamp when the comment was last updated   |
-
-Indexes:
-- `post_id`: For faster queries when fetching comments for a specific post
-- `status`: For filtering comments by their status
-- `type`: For filtering entries by their type
-
-Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_post_comments`.
-
-Additional tables may exist in the `databases/Migrators` directory. To complete the documentation for all tables, you would need to review each migrator file in that directory and add their schemas to this document in a similar format.
-
-
-
 
 ## Table: wp_fcom_posts
 
@@ -76,6 +43,37 @@ Indexes:
 - `idx_space_id_status_privacy`: Composite index for filtering posts by space, status, and privacy
 
 Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_posts`.
+
+
+## Table: wp_fcom_post_comments
+
+This table stores comments and reactions for posts in the community.
+
+| Column Name       | Data Type         | Constraints           | Description                                    |
+|-------------------|--------------------|-----------------------|------------------------------------------------|
+| id                | BIGINT UNSIGNED    | PRIMARY KEY, AUTO_INCREMENT | Unique identifier for each comment       |
+| user_id           | BIGINT UNSIGNED    | NULL                  | ID of the user who made the comment           |
+| post_id           | BIGINT UNSIGNED    | NULL                  | ID of the post the comment belongs to         |
+| parent_id         | BIGINT UNSIGNED    | NULL                  | ID of the parent comment (for nested comments)|
+| reactions_count   | BIGINT UNSIGNED    | DEFAULT 0             | Number of reactions to this comment           |
+| message           | LONGTEXT           | NULL                  | The comment text                              |
+| message_rendered  | LONGTEXT           | NULL                  | Rendered version of the comment (e.g., HTML)  |
+| meta              | LONGTEXT           | NULL                  | Additional metadata for the comment           |
+| type              | VARCHAR(100)       | DEFAULT 'comment'     | Type of the entry (e.g., comment, reaction)   |
+| content_type      | VARCHAR(100)       | DEFAULT 'text'        | Type of content (e.g., text, image)           |
+| status            | VARCHAR(100)       | DEFAULT 'published'   | Status of the comment (e.g., published, draft)|
+| is_sticky         | TINYINT(1)         | DEFAULT 0             | Whether the comment is sticky or not          |
+| created_at        | TIMESTAMP          | NULL                  | Timestamp when the comment was created        |
+| updated_at        | TIMESTAMP          | NULL                  | Timestamp when the comment was last updated   |
+
+Indexes:
+- `post_id`: For faster queries when fetching comments for a specific post
+- `status`: For filtering comments by their status
+- `type`: For filtering entries by their type
+
+Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_post_comments`.
+
+Additional tables may exist in the `databases/Migrators` directory. To complete the documentation for all tables, you would need to review each migrator file in that directory and add their schemas to this document in a similar format.
 
 
 ## wp_fcom_post_reactions
@@ -129,7 +127,6 @@ Indexes:
 - `created_by`: For faster queries when fetching spaces created by a specific user
 
 Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_spaces`.
-
 
 
 ## wp_fcom_space_users
@@ -186,7 +183,6 @@ Indexes:
 Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_media_archive`.
 
 
-
 ## wp_fcom_meta
 
 This table stores metadata for various objects in the community platform.
@@ -207,7 +203,6 @@ Indexes:
 - `meta_key`: For quick lookups of specific metadata keys
 
 Note: The table uses the WordPress prefix (typically `wp_`) followed by `fcom_meta`.
-
 
 
 ## wp_fcom_notifications
