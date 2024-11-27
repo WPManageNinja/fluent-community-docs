@@ -19,5 +19,7 @@ Your community can get a lot of media files uploaded by users. It is a good idea
 ### Database
 - [Database Schema](database-schema.md)
 
+![FluentCommunity Database Design](fluent-community-database-design.png "FluentCommunity Database Design")
+
 ### Recommended Server Configuration
 - [Recommended Server Configuration for FluentCommunity](recommended-server-config.md)
