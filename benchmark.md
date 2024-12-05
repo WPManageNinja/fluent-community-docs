@@ -18,6 +18,7 @@
 - **Plugins:** FluentCommunity & FluentCommunity Pro
 - **Object Cache:** Disabled
 - **Page Caching:** Disabled
+- **Posts/CPT Count:** 3 (default posts)
 
 **Note:** Serber Location: US (New Jersey), Pingback Avg (From Asia): 38.65ms, PHP Version: 8.1, MySQL Version: 8.0.40-0ubuntu0.22.04.1, WordPress Version: 6.7.1
 
@@ -38,4 +39,39 @@ The first part is the execution time of the REST API request and the second part
 So `611.4 / 990` means the request took `611.4ms` to execute and `990ms` to complete including the network latency including execution time (Total).
 
 
-### Benchmark 1 (With Standard Plugins)
+### Benchmark 2 (With Standard Plugins & WordPress Contents)
+- **Theme:** Kadence + Child Theme
+- **Plugins:** 
+  - FluentCommunity & FluentCommunity Pro
+  - FluentCRM
+  - FluentSMTP
+  - FluentForms
+  - WooCommerce
+    - 1,000 Orders
+    - 30 Demo Products
+    - Other associate data with Orders and Products
+  - LifterLMS (with 6 courses)
+  - Regular Posts: 286
+  - Published Pages: 10
+- **Object Cache:** Disabled
+- **Page Caching:** Disabled
+
+**REST API Benahchmarks**
+
+| # | Users Count | Posts Count | Post Reactions | Comment Count | Comment Reactions | All Feeds Response (ms) | Space Posts Response (ms) | Members Index Response (ms) |
+|---|-------------|-------------|----------------|---------------|-------------------|-------------------------|---------------------------|-----------------------------|
+| 1 | 100,001     | 200,768     | 500,004        | 500,000       | 1,000,850         | 648 / 1190              | 577 / 1050                | 200.1 / 711                 |
+
+**Response Timing Definations:**
+
+The first part is the execution time of the REST API request and the second part is total time taken including the network latency.
+
+So `648 / 1190` means the request took `648ms` to execute and `1190ms` to complete including the network latency + execution time (Total).
+
+
+#### Footnotes
+- This benchmark is not conducted with live traffic and the server is standard configured by xCloud system default. No caching plugin is configured.
+- The response time may vary based on the server location and network latency.
+- Response time is measured using chrome network inspector and the average of 5 requests is taken.
+- No other traffic is generated during the benchmark. But you are welcome to test the live site and share your feedback.
+- We ran these benchmark to improve the performance of the FluentCommunity plugin and to make it more scalable for large communities.
