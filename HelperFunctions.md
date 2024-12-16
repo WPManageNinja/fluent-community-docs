@@ -174,15 +174,15 @@ Retrieves the user's IP address, with an option to anonymize it. It handles vari
 This documentation covers some of the key methods in the `Helper` class. Each method is presented with its signature, parameters, return type, and a brief description of its functionality. This format should be more suitable for developers working with the FluentCommunity plugin.
 
 
-### addUserToSpace($spaceId, $userId, $role, $by)
+### addToSpace($spaceId, $userId, $role, $by)
 
 Adds a user to a space.
 
 **Parameters:**
 - `$spaceId` (int): The ID of the space.
 - `$userId` (int): The ID of the user.
-- `$role` (string): The role of the user in the space.
-- `$by` (string): The method of adding the user to the space.
+- `$role` (string): The role of the user in the space. default: 'member'
+- `$by` (string): The method of adding the user to the space. default: self
 
 **Returns:** bool
 - True if added, false if the member is already in the space or no user or space found in the system.
