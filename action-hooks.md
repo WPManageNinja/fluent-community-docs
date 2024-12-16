@@ -288,7 +288,7 @@
   - `$by` (string): The action that triggered the enrollment. Can be `self` or `by_admin` or `by_automation`.
 - Example:
   ```php
-  add_action('fluent_community/course/enrolled', function($user, $course) {
+  add_action('fluent_community/course/enrolled', function($course, $userId) {
       // Perform actions when a user is enrolled in a course
   }, 10, 2);
   ```
@@ -303,7 +303,7 @@
 -
 - Example:
   ```php
-  add_action('fluent_community/course/student_left', function($user, $course) {
+  add_action('fluent_community/course/student_left', function($course, $userId) {
       // Perform actions when a user is unenrolled from a course
   }, 10, 2);
   ```
