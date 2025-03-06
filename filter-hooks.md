@@ -223,3 +223,43 @@
         return $welcomeBanner;
     });
     ```
+
+##### `fluent_community/convert_image_to_webp` 
+- Description: Filter hook to enable or disable WebP conversion for images.
+- Parameters:
+  - `$convert` (boolean): The default WebP conversion state.
+  - `$file` (array): The file array containing file information.
+- Example:
+  ```php
+    add_filter('fluent_community/convert_image_to_webp', function($convert, $file) {
+        // Disable WebP conversion based on file type
+        if ($file['type'] === 'image/jpeg') {
+            return false; // disable WebP conversion for JPEG images
+        }
+        
+        return $convert; // Keep the default state for other file types
+    }, 10, 2);
+  
+    // Disable WebP conversion for all images
+    add_filter('fluent_community/convert_image_to_webp', '__return_false' ,10);
+    ```
+  
+##### `fluent_community/media_upload_resize`
+- Description: Filter hook to enable or disable media upload resizing.
+- Parameters:
+  - `$resize` (boolean): The default media upload resizing state.
+  - `$file` (array): The file array containing file information.
+- Example:
+  ```php
+    add_filter('fluent_community/media_upload_resize', function($resize, $file) {
+        // Disable media upload resizing based on file type
+        if ($file['type'] === 'image/png') {
+            return false; // disable resizing for PNG images
+        }
+        
+        return $resize; // Keep the default state for other file types
+    }, 10, 2);
+  
+    // Disable media upload resizing for all images
+    add_filter('fluent_community/media_upload_resize', '__return_false' ,10);
+    ```

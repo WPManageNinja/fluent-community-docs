@@ -239,3 +239,16 @@ if($profile) {
 - getCrmContact() // Will return the CRM contact object if FluentCRM exist and the user is a contact
 - getCompletionScore() // Will return the profile completion score
 
+
+### Other Snippets
+
+#### Disable Image Resize and WebP conversation <a name="disable_image_process"></a>
+By default, the FluentCommunity will resize the images and convert to webp format to optimize the images. If you want to disable this feature, you can use the following code.
+
+> [!CAUTION]
+> ALETR: We highly recommend to keep this feature enabled for better performance and user experience.
+
+```php
+add_filter('fluent_community/media_upload_resize', '__return_false', 10); // disable image resizing
+add_filter('fluent_community/convert_image_to_webp', '__return_false', 10); // disable webp conversion
+```
