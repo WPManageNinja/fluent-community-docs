@@ -209,6 +209,30 @@
       // Perform actions when a reaction is added
   }, 10, 2);
   ```
+  
+##### `fluent_community/feeds_query`
+
+- Description: Action hook that fires just before a query is made to fetch feeds.
+- Parameters:
+    - `$query` (object): The query object.
+    - `$requestParams` (array): The request parameters from client side.
+    - `$args` (array): The arguments used for the query.
+
+- Example:
+- 
+```php
+  add_action('fluent_community/feeds_query', function(&$query, $requestParams, $args) {
+      // if it's a mian query for all the feeds then show only posts from certain spaces
+        if (!empty($args['is_main_query'])) {
+            $query->whereIn('space_id', [1, 2, 3]); // replace with your space IDs that you want to show the posts to the homepage
+            
+            // OR if you want to show posts from all the spaces except certain spaces
+            $query->whereNotIn('space_id', [1, 2, 3]); // replace with your space IDs that you want to hide the posts from the homepage
+        }
+        
+        return $query;
+  }, 10, 3);
+  ```
 
 ### Comment Actions
 
