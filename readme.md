@@ -5,6 +5,7 @@ Your community can get a lot of media files uploaded by users. It is a good idea
 - [Configure CloudFlare R2 for Media Storage](configure-cloudflare-r2.md)
 - [Configure Amazon S3 for Media Storage](configure-amazon-s3.md)
 - [Configure BunnyCDN for Media Storage](configure-bunny_cdn.md)
+- [Theme Compatibility Guide](theme-compatibility.md)
 
 ### Hooks
 - [Action Hooks](action-hooks.md)
