@@ -24,7 +24,7 @@ This snippet will check if it's a FluentCommunity REST API calls or not not and 
  * Version: 1.0
  * Author: Shahjahan Jewel
  * Author URI: https://fluentcommunity.co
- * Plugin URI: https://fluentcommunity.co
+ * Plugin URI: https://github.com/WPManageNinja/fluent-community-docs/blob/master/rest-api-performance-tuning.md
  */
 
 add_filter('option_active_plugins', function ($plugins) {
