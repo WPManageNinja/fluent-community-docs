@@ -41,6 +41,7 @@ add_filter('option_active_plugins', function ($plugins) {
         'fluent-crm/fluent-crm.php', // FluentCRM Integration
         'fluentcampaign-pro/fluentcampaign-pro.php', // FluentCRM Pro Integration
         'easy-code-manager/easy-code-manager.php', // fluent snippets
+        'fluent-messaging/fluent-messaging.php', // Fluent Chat
         // add more plugins here as needed
     ];
 
